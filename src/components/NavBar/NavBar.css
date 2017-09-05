@@ -6,3 +6,9 @@
 .NavBar-color {
     color: #A9A9A9;
 }
+
+
+.NavBar ul li a:hover {
+    color: #FF3B3F;
+    background: white;
+}

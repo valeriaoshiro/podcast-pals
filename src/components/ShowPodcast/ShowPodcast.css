@@ -1,0 +1,11 @@
+.card-content {
+    height: 120px;
+}
+
+.card-action a {
+    color: #FF3B3F !important;
+}
+
+.card-action a:hover {
+    color: #A9A9A9 !important;
+}

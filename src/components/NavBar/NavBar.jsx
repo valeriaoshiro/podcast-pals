@@ -12,8 +12,8 @@ class NavBar extends Component {
   render(){
     let nav = this.props.user ?
       <div>
-        <li key="1"><Link to="" className='NavBar-color' onClick={this.props.handleLogout} >LOG OUT</Link></li>
         <li key="2"><span className='NavBar-color'>WELCOME, {this.props.user.name}</span></li>
+        <li key="1"><Link to="" className='NavBar-color' onClick={this.props.handleLogout} >LOG OUT</Link></li>
       </div>
       :
       <div>
