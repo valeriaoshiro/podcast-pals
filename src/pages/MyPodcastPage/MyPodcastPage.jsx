@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import NavBar from '../../components/NavBar/NavBar';
+import ShowMyPodcastList from '../../components/ShowMyPodcastList/ShowMyPodcastList';
 import tokenService from './../../utils/tokenService';
 import './MyPodcastPage.css'
 // import topscoresAPI from '../../utils/topscoresAPI';
@@ -9,6 +10,9 @@ class MyPodcastPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      userName: "",
+      userEmail: "",
+      userLists: []
    }
   }
   componentWillMount(){
@@ -17,7 +21,13 @@ class MyPodcastPage extends Component {
       headers: new Headers({'Authorization': 'Bearer ' + tokenService.getToken()})
     })
     .then(res => res.json()) 
-    .then(data => console.log("data", data));
+    .then(data => {
+      this.setState({
+        userName: data.name,
+        userEmail: data.email,
+        userLists: [...data.lists]
+      })
+    });
   }
 
   render() {
@@ -28,6 +38,12 @@ class MyPodcastPage extends Component {
             handleLogout={this.props.handleLogout}
         />
         <h1 className="MyPodcastPage-h1 center-align">My Page</h1>
+        <ShowMyPodcastList 
+          user={this.state.user}
+          userName={this.state.userName}
+          userEmail={this.state.userEmail}
+          userLists={this.state.userLists}
+        />
       </div>
     );
   }
