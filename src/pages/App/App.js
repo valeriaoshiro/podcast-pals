@@ -9,7 +9,7 @@ import './App.css';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import LandingPage from '../LandingPage/LandingPage';
-import PodcastIndexPage from '../PodcastIndexPage/PodcastIndexPage';
+import MyPodcastPage from '../MyPodcastPage/MyPodcastPage';
 import userService from '../../utils/userService';
 
 
@@ -68,7 +68,10 @@ class App extends Component {
               }/>
               <Route exact path='/podcasts' render={() => (
                 userService.getUser() ?
-                  <PodcastIndexPage />
+                  <MyPodcastPage 
+                    user={this.state.user}
+                    handleLogout={this.handleLogout}
+                  />
                   :
                   <Redirect to='/login' />
               )} />

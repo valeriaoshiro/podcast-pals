@@ -1,12 +1,14 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 var bcrypt = require('bcrypt');
 const SALT_ROUNDS = 6;
 
 
-var userSchema = new mongoose.Schema({
+var userSchema = new Schema({
   name: String,
   email: {type: String, required: true, lowercase: true, unique: true},
-  password: String
+  password: String,
+  lists: [{type: Schema.Types.ObjectId, ref: 'Podcast'}]
 }, {
   timestamps: true
 });

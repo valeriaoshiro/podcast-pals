@@ -4,15 +4,12 @@ import {Link} from 'react-router-dom';
 import './ShowPodcast.css';
 
 const ShowPodcast = (props) => {
-    // props.topPodcasts.forEach(podcast => {
-    //     console.log("******", podcast) }
-    // )
     var allPodcasts = props.topPodcasts.map((podcast, index) => {
         return (
-            <div className="col s2">
+            <div className="col s2" key={index}>
                 <div className="card">
                     <div className="card-image">
-                        <img src={podcast.artworkUrl600} />
+                        <img src={podcast.artworkUrl600} alt={podcast.collectionName}/>
                     </div>
                     <div className="card-content">
                         <p>{podcast.collectionName}</p>
