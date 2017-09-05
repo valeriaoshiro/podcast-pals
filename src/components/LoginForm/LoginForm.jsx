@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import userService from '../../utils/userService';
+import './LoginForm.css'
 
 class LoginForm extends Component {
   constructor(props) {
@@ -31,23 +32,25 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <div>
-        <header className="header-footer">Log In</header>
-        <form className="form-horizontal" onSubmit={this.handleSubmit} >
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="email" className="form-control" placeholder="Email" value={this.state.email} onChange={(e) => this.handleChange('email', e)} />
+      <div className="row">
+        <h1 className="center-align LoginForm-h1">Log In</h1>
+        <form className="col s6 offset-s3" onSubmit={this.handleSubmit} >
+          <div className="row">
+            <div className="input-field col s12">
+              <input type="text" className="validate" placeholder="Email" id="email" value={this.state.email} onChange={(e) => this.handleChange('email', e)} />
+              <label for="email">Email</label>
             </div>
           </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="password" className="form-control" placeholder="Password" value={this.state.pw} onChange={(e) => this.handleChange('pw', e)} />
+          <div className="row">
+            <div className="input-field col s12">
+              <input type="password" className="validate" id="password" placeholder="Password" value={this.state.pw} onChange={(e) => this.handleChange('pw', e)} />
+              <label for="password">Password</label>
             </div>
           </div>
-          <div className="form-group">
-            <div className="col-sm-12 text-center">
-              <button className="btn btn-default">Log In</button>&nbsp;&nbsp;&nbsp;
-              <Link to='/'>Cancel</Link>
+          <div className="row">
+            <div className="col s12">
+              <button className="btn LoginForm-button">Log In</button>&nbsp;&nbsp;&nbsp;
+              <Link to='/' className="LoginForm-cancel">Cancel</Link>
             </div>
           </div>
         </form>

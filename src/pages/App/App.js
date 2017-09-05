@@ -6,10 +6,10 @@ import {
   Redirect
 } from 'react-router-dom';
 import './App.css';
-import NavBar from './../../components/NavBar/NavBar';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import LandingPage from '../LandingPage/LandingPage';
+import PodcastIndexPage from '../PodcastIndexPage/PodcastIndexPage';
 import userService from '../../utils/userService';
 
 
@@ -66,7 +66,12 @@ class App extends Component {
                   handleLogin={this.handleLogin}
                 />
               }/>
-
+              <Route exact path='/podcasts' render={() => (
+                userService.getUser() ?
+                  <PodcastIndexPage />
+                  :
+                  <Redirect to='/login' />
+              )} />
           </Switch>
         </Router>
       </div>

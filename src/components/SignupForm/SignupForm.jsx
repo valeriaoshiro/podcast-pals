@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import userService from '../../utils/userService';
+import './SignupForm.css';
 
 class SignupForm extends Component {
   constructor(props) {
@@ -39,33 +40,37 @@ class SignupForm extends Component {
 
   render() {
     return (
-      <div>
-        <header className="header-footer">Sign Up</header>
-        <form className="form-horizontal" onSubmit={this.handleSubmit} >
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="text" className="form-control" placeholder="Name" value={this.state.name} onChange={(e) => this.handleChange('name', e)} />
+      <div className="row">
+        <h1 className="center-align SignupForm-h1">Sign Up</h1>
+        <form className="col s6 offset-s3" onSubmit={this.handleSubmit} >
+          <div className="row">
+            <div className="input-field col s12">
+              <input type="text" className="validate" placeholder="Name" id="name" value={this.state.name} onChange={(e) => this.handleChange('name', e)} />
+              <label for="name">Name</label>
             </div>
           </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="email" className="form-control" placeholder="Email" value={this.state.email} onChange={(e) => this.handleChange('email', e)} />
+          <div className="row">
+            <div className="input-field col s12">
+              <input type="email" className="validate" id="email" placeholder="Email" value={this.state.email} onChange={(e) => this.handleChange('email', e)} />
+              <label for="email">Email</label>
             </div>
           </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="password" className="form-control" placeholder="Password" value={this.state.password} onChange={(e) => this.handleChange('password', e)} />
+          <div className="row">
+            <div className="input-field col s12">
+              <input type="password" className="validate" id="password" placeholder="Password" value={this.state.password} onChange={(e) => this.handleChange('password', e)} />
+              <label for="password">Password</label>
             </div>
           </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input type="password" className="form-control" placeholder="Confirm Password" value={this.state.passwordConf} onChange={(e) => this.handleChange('passwordConf', e)} />
+          <div className="row">
+            <div className="input-field col s12">
+              <input type="password" className="validate" id="passwordValidate" placeholder="Confirm Password" value={this.state.passwordConf} onChange={(e) => this.handleChange('passwordConf', e)} />
+              <label for="passwordValidate">Confirm Password</label>
             </div>
           </div>
-          <div className="form-group">
-            <div className="col-sm-12 text-center">
-              <button className="btn btn-default" disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
-              <Link to='/'>Cancel</Link>
+          <div className="row">
+            <div className="col s12">
+              <button className="btn SignupForm-button" disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
+              <Link to='/' className="SignupForm-cancel">Cancel</Link>
             </div>
           </div>
         </form>
