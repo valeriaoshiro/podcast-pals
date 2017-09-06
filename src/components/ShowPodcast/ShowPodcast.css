@@ -1,5 +1,5 @@
 .card-content {
-    height: 120px;
+    height: 170px !important;
 }
 
 .card-action a {
@@ -8,4 +8,9 @@
 
 .card-action a:hover {
     color: #A9A9A9 !important;
+}
+
+.card .card-image img {
+    width: 75%;
+    margin: 0 auto;
 }
