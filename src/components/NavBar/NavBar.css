@@ -1,9 +1,9 @@
 .NavBar {
     background: #ffffff;
-    
+    color: #A9A9A9;
 }
 
-.NavBar-color {
+.NavBar-color a {
     color: #A9A9A9;
 }
 
@@ -14,5 +14,9 @@
 }
 
 .NavBar-pipe {
+    color: #A9A9A9;
+}
+
+nav .brand-logo {
     color: #A9A9A9;
 }
