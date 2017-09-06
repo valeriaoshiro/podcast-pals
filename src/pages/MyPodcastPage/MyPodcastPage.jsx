@@ -18,8 +18,9 @@ class MyPodcastPage extends Component {
 
   removePodcast = (podcast) => {
     var index = this.state.userLists.indexOf(podcast);
-    this.state.userLists.splice(index, 1);
-    console.log(this.state.userLists);
+    var newArray = [...this.state.userLists];
+    newArray.splice(index, 1);
+    this.setState({userLists: [...newArray]});
   }
 
   componentWillMount(){

@@ -1,6 +1,5 @@
 var Podcast = require('../models/podcast');
 var User = require('../models/user')
-var SECRET = process.env.SECRET;
 
 module.exports = {
   index,
@@ -22,6 +21,8 @@ function create(req, res){
         if(!result) {
             podcast = new Podcast(req.body);
             podcast.save();
+        } else {
+            podcast = result;
         }
         User.findById(req.user._id, (err, user) => {
             console.log('***User ', user)
@@ -35,10 +36,11 @@ function create(req, res){
 
 function deletePodcast(req, res){
     console.log("req.params ", req.params)
+    console.log("req.user._id", req.user._id)
     User.findById(req.user._id, (err, user) => {
         user.lists.remove(req.params.id);
         user.save(err => {
-            res.redirect('/podcasts');
+            res.status(200).json(err);
         })
     })
 }

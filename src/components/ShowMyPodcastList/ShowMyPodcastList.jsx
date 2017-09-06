@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Card, CardTitle, Row, Col, Icon} from 'react-materialize';
-// import tokenService from './../../utils/tokenService';
+import tokenService from './../../utils/tokenService';
 import './ShowMyPodcastList.css';
 
 class ShowMyPodcastList extends Component{
@@ -10,16 +10,13 @@ class ShowMyPodcastList extends Component{
     }
 
     handleClick = (podcast) => {
-        // console.log(podcast);
         this.props.removePodcast(podcast);
-        // console.log(podcast._id)
-        // fetch('/api/podcasts/podcast._id?_method=DELETE', {
-        //     method: 'POST',
-        //     headers: new Headers({ 'Authorization': 'Bearer ' + tokenService.getToken() })
-        // })
-        // .then(response => {
-        //     console.log("delete successful");
-        // })
+        fetch(`/api/podcasts/${podcast._id}`, {
+            method: 'DELETE',
+            headers: new Headers({ 'Authorization': 'Bearer ' + tokenService.getToken() })
+        })
+        .then(response => {
+        })
     }
 
     render(){

@@ -49,10 +49,11 @@ class App extends Component {
       <div className="App">
         <Router>
           <Switch>
-            <Route exact path='/' render={() => 
+            <Route exact path='/' render={(props) => 
               <LandingPage
                 user={this.state.user}
                 handleLogout={this.handleLogout}
+                history={props.history}
               />
             }/>
             <Route exact path='/signup' render={(props) => 
