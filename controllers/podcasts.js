@@ -14,7 +14,15 @@ function index(req, res){
 };
 
 function create(req, res){
-    console.log(req);
+    console.log(req.body);
+    Podcast.findOne({ "collectionId": req.body.collectionId }, (err, result) => {
+        if(!result) {
+            var podcast = new Podcast(req.body);
+            podcast.save(err => {
+                res.redirect('/');
+            })
+        }
+    })
 };
 
 /*----- Helper Functions -----*/

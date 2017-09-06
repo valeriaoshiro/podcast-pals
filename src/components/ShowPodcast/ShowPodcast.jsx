@@ -28,6 +28,9 @@ class ShowPodcast extends Component {
                 url: podcast.collectionViewUrl
             })
         })
+        .then(response => {
+            console.log('Success ', response);
+        })
     }
 
     render(){
