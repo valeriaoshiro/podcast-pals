@@ -1,0 +1,25 @@
+.ShowMyPodcastList .card-content {
+    height: 170px !important;
+}
+
+.ShowMyPodcastList .card-action a {
+    color: #FF3B3F !important;
+}
+
+.ShowMyPodcastList .card-action a:hover {
+    color: #A9A9A9 !important;
+}
+
+.ShowMyPodcastList .card .card-image img {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.ShowMyPodcastList-icon {
+    color: #CAEBF2;
+}
+
+.ShowMyPodcastList-button {
+    border: none;
+    background: white;
+}

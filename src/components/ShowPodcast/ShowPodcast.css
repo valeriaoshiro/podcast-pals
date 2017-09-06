@@ -1,16 +1,16 @@
-.card-content {
+.ShowPodcast .card-content {
     height: 170px !important;
 }
 
-.card-action a {
+.ShowPodcast .card-action a {
     color: #FF3B3F !important;
 }
 
-.card-action a:hover {
+.ShowPodcast .card-action a:hover {
     color: #A9A9A9 !important;
 }
 
-.card .card-image img {
+.ShowPodcast .card .card-image img {
     width: 55%;
     margin: 0 auto;
 }

@@ -38,7 +38,7 @@ class MyPodcastPage extends Component {
             handleLogout={this.props.handleLogout}
         />
         <h1 className="MyPodcastPage-h1 center-align">My Page</h1>
-        <ShowMyPodcastList 
+        <ShowMyPodcastList
           user={this.state.user}
           userName={this.state.userName}
           userEmail={this.state.userEmail}

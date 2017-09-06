@@ -34,10 +34,9 @@ function login(req, res) {
 }
 
 function index(req, res){
-  User.findById(req.user)
-  .then(user => {
+  User.findById(req.user).populate('lists').exec((err, user) => {
     res.status(200).json(user);
-  });
+  })
 };
 
 /*----- Helper Functions -----*/
