@@ -14,7 +14,7 @@ class SearchPage extends Component {
 
     searchPodcast = (searchValue) => {
         var podcast = searchValue.replace(/ /ig, '+');
-        var URI = `https://itunes.apple.com/search?term=${podcast}&media=podcast`
+        var URI = `https://itunes.apple.com/search?term=${podcast}&media=podcast&limit=25`
         fetch(URI, {
             method: 'get'
         })
