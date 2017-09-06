@@ -80,6 +80,7 @@ class App extends Component {
                 userService.getUser() ?
                   <SearchPage 
                     user={this.state.user}
+                    handleLogout={this.handleLogout}
                   />
                   :
                   <Redirect to='/login' />
