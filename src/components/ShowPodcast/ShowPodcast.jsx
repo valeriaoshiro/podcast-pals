@@ -3,7 +3,8 @@ import {Card, CardTitle, Row, Col} from 'react-materialize';
 import './ShowPodcast.css';
 
 const ShowPodcast = (props) => {
-    var allPodcasts = props.topPodcasts.map((podcast, index) => {
+    console.log("props ", props)
+    var allPodcasts = props.podcasts.map((podcast, index) => {
         return (
             <Col s={3} key={index}>
                 <Card
@@ -14,22 +15,7 @@ const ShowPodcast = (props) => {
                     {podcast.collectionName}
                 </Card>
 
-            </Col>
-
-
-            // <div className="col s2" key={index}>
-            //     <div className="card">
-            //         <div className="card-image">
-            //             <img src={podcast.artworkUrl600} alt={podcast.collectionName}/>
-            //         </div>
-            //         <div className="card-content">
-            //             <p>{podcast.collectionName}</p>
-            //         </div>
-            //         <div className="card-action">
-            //             <Link to={podcast.collectionViewUrl} target="_blank">Visit Podcast</Link>
-            //         </div>
-            //     </div>
-            // </div>    
+            </Col> 
         )
            
     });

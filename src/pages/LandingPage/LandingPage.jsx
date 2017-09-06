@@ -44,7 +44,7 @@ class LandingPage extends Component {
                     handleLogout={this.props.handleLogout}
                 />
                 <h1 className="LandingPage-h1 center-align">Top Podcasts</h1>
-                <ShowPodcast topPodcasts={this.state.topPodcasts}/>
+                <ShowPodcast podcasts={this.state.topPodcasts}/>
             </div>
         );
     }
