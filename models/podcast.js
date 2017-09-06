@@ -4,7 +4,9 @@ var Schema = mongoose.Schema;
 var podcastSchema = new Schema({
   name: String,
   genre: String,
-  cover: String
+  cover: String,
+  collectionId: String,
+  url: String
 }, {
   timestamps: true
 });

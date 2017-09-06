@@ -11,10 +11,15 @@
 }
 
 .card .card-image img {
-    width: 75%;
+    width: 55%;
     margin: 0 auto;
 }
 
 .ShowPodcast-icon {
     color: #CAEBF2;
+}
+
+.ShowPodcast-button {
+    border: none;
+    background: white;
 }
