@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import SearchForm from '../../components/SearchForm/SearchForm';
+import SearchPodcastForm from '../../components/SearchPodcastForm/SearchPodcastForm';
 import NavBar from '../../components/NavBar/NavBar';
 import ShowPodcast from '../../components/ShowPodcast/ShowPodcast';
 import './SearchPage.css';
@@ -36,7 +36,7 @@ class SearchPage extends Component {
                     user={this.props.user}
                     handleLogout={this.props.handleLogout}
                 />
-                <SearchForm 
+                <SearchPodcastForm 
                     {...this.props} 
                     updateSearch={this.updateSearch} 
                     searchPodcast={this.searchPodcast}
@@ -53,7 +53,7 @@ class SearchPage extends Component {
                     user={this.props.user}
                     handleLogout={this.props.handleLogout}
                 />
-                <SearchForm 
+                <SearchPodcastForm 
                     {...this.props} 
                     updateSearch={this.updateSearch} 
                     searchPodcast={this.searchPodcast}

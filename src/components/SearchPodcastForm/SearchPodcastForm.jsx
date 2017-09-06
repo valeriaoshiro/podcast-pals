@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import './SearchForm.css';
+import './SearchPodcastForm.css';
 
-class SearchForm extends Component {
+class SearchPodcastForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,7 +24,7 @@ class SearchForm extends Component {
   render() {
     return (
       <div className="row">
-        <h1 className="center-align SearchForm-h1">Search</h1>
+        <h1 className="center-align SearchPodcastForm-h1">Search</h1>
         <form className="col s6 offset-s3" onSubmit={this.handleSubmit} >
           <div className="row">
             <div className="input-field col s12">
@@ -34,7 +34,7 @@ class SearchForm extends Component {
           </div>
           <div className="row">
             <div className="col s12">
-              <button className="btn SearchForm-button">Submit</button>
+              <button className="btn SearchPodcastForm-button">Submit</button>
             </div>
           </div>
         </form>
@@ -43,4 +43,4 @@ class SearchForm extends Component {
   }
 };
 
-export default SearchForm;
+export default SearchPodcastForm;
