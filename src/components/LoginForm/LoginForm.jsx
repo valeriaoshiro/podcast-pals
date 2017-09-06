@@ -38,13 +38,13 @@ class LoginForm extends Component {
           <div className="row">
             <div className="input-field col s12">
               <input type="text" className="validate" placeholder="Email" id="email" value={this.state.email} onChange={(e) => this.handleChange('email', e)} />
-              <label for="email">Email</label>
+              <label htmlFor="email">Email</label>
             </div>
           </div>
           <div className="row">
             <div className="input-field col s12">
               <input type="password" className="validate" id="password" placeholder="Password" value={this.state.pw} onChange={(e) => this.handleChange('pw', e)} />
-              <label for="password">Password</label>
+              <label htmlFor="password">Password</label>
             </div>
           </div>
           <div className="row">

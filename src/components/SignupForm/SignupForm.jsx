@@ -46,25 +46,25 @@ class SignupForm extends Component {
           <div className="row">
             <div className="input-field col s12">
               <input type="text" className="validate" placeholder="Name" id="name" value={this.state.name} onChange={(e) => this.handleChange('name', e)} />
-              <label for="name">Name</label>
+              <label htmlFor="name">Name</label>
             </div>
           </div>
           <div className="row">
             <div className="input-field col s12">
               <input type="email" className="validate" id="email" placeholder="Email" value={this.state.email} onChange={(e) => this.handleChange('email', e)} />
-              <label for="email">Email</label>
+              <label htmlFor="email">Email</label>
             </div>
           </div>
           <div className="row">
             <div className="input-field col s12">
               <input type="password" className="validate" id="password" placeholder="Password" value={this.state.password} onChange={(e) => this.handleChange('password', e)} />
-              <label for="password">Password</label>
+              <label htmlFor="password">Password</label>
             </div>
           </div>
           <div className="row">
             <div className="input-field col s12">
               <input type="password" className="validate" id="passwordValidate" placeholder="Confirm Password" value={this.state.passwordConf} onChange={(e) => this.handleChange('passwordConf', e)} />
-              <label for="passwordValidate">Confirm Password</label>
+              <label htmlFor="passwordValidate">Confirm Password</label>
             </div>
           </div>
           <div className="row">
