@@ -19,7 +19,7 @@ class LandingPage extends Component {
             podcast = podcast.replace(/ /ig, '+');
             var URI = `https://itunes.apple.com/search?term=${podcast}&media=podcast`
             promises.push(fetch(URI, {
-                    method: 'get'
+                    method: 'GET'
                 })
                 .then(response => response.json())
             );

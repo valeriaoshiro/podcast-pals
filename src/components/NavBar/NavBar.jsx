@@ -1,41 +1,28 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import $ from 'jquery';
+import {Navbar, NavItem} from 'react-materialize';
 import './NavBar.css';
 
 class NavBar extends Component {
   
-  componentDidMount(){
-    // $(".button-collapse").sideNav();  
-  }  
-
   render(){
     let nav = this.props.user ?
-      <div>
-        <li key="5"><Link to="/podcasts" className='NavBar-color'>MY PAGE</Link></li> 
-        
-        <li key="2">&nbsp;<span className="NavBar-pipe">|</span>&nbsp;&nbsp;&nbsp;<span className='NavBar-color'>WELCOME, {this.props.user.name}</span></li>
-        <li key="1"><Link to="" className='NavBar-color' onClick={this.props.handleLogout} >LOG OUT</Link></li>
+      <div>  
+        <NavItem key="6" href="/search">SEARCH</NavItem>
+        <NavItem key="5" href="/podcasts">MY PAGE</NavItem> 
+        <NavItem key="2">&nbsp;<span className="NavBar-pipe">|</span>&nbsp;&nbsp;&nbsp;<span className='NavBar-color'>WELCOME, {this.props.user.name}</span></NavItem>
+        <NavItem key="1" href="" className='NavBar-color' onClick={this.props.handleLogout} >LOG OUT</NavItem>
       </div>
       :
-      <div>
-        <li key="3"><Link to="/login" className='NavBar-color'>LOG IN</Link></li>
-        <li key="4"><Link to="/signup" className='NavBar-color'>SIGN UP</Link></li>
-      </div>;
+        <div>
+          <NavItem key="3" href="/login" className='NavBar-color'>LOG IN</NavItem>
+          <NavItem key="4" href="/signup" className='NavBar-color'>SIGN UP</NavItem>
+        </div>;
 
     return (
-      <nav className="NavBar">
-        <div className="nav-wrapper container">
-          <Link to="/" className="NavBar-color">PODCAST PALS</Link>
-          <Link to="/" data-activities="mobile-demo" className="button-collapse"><i className="material-icons">menu</i></Link>
-          <ul className="right hide-on-med-and-down">
-            {nav}
-          </ul>
-          <ul id="mobile-demo" className="side-nav">
-            {nav}
-          </ul>
-        </div>  
-      </nav>
+      <Navbar brand='PODCAST PALS' right>
+        {nav}
+      </Navbar>
     );
 
   }

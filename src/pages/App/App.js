@@ -10,6 +10,7 @@ import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import LandingPage from '../LandingPage/LandingPage';
 import MyPodcastPage from '../MyPodcastPage/MyPodcastPage';
+import SearchPage from '../SearchPage/SearchPage';
 import userService from '../../utils/userService';
 
 
@@ -69,6 +70,15 @@ class App extends Component {
               <Route exact path='/podcasts' render={() => (
                 userService.getUser() ?
                   <MyPodcastPage 
+                    user={this.state.user}
+                    handleLogout={this.handleLogout}
+                  />
+                  :
+                  <Redirect to='/login' />
+              )} />
+              <Route exact path='/search' render={() => (
+                userService.getUser() ?
+                  <SearchPage 
                     user={this.state.user}
                     handleLogout={this.handleLogout}
                   />

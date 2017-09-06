@@ -1,24 +1,18 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-// import $ from 'jquery';
+import {Card, CardTitle} from 'react-materialize';
 import './ShowPodcast.css';
 
 const ShowPodcast = (props) => {
     var allPodcasts = props.topPodcasts.map((podcast, index) => {
         return (
-            <div className="col s2" key={index}>
-                <div className="card">
-                    <div className="card-image">
-                        <img src={podcast.artworkUrl600} alt={podcast.collectionName}/>
-                    </div>
-                    <div className="card-content">
-                        <p>{podcast.collectionName}</p>
-                    </div>
-                    <div className="card-action">
-                        <Link to={podcast.collectionViewUrl} target="_blank">Visit Podcast</Link>
-                    </div>
-                </div>
-            </div>    
+            <div>
+            <Card className='small' key={index}
+                header={<CardTitle image={podcast.artworkUrl600}></CardTitle>}
+                actions={[<Link to={podcast.collectionViewUrl} target="_blank">Visit Podcast</Link>]}>
+                {podcast.collectionName}
+            </Card>   
+            </div>
         )
            
     });
@@ -28,7 +22,7 @@ const ShowPodcast = (props) => {
             <div className="row">
                 {allPodcasts}
             </div>    
-      </div>
+        </div>
     );
 
 };

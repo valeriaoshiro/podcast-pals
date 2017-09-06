@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import {Row, Input} from 'react-materialize';
 import userService from '../../utils/userService';
 import './LoginForm.css'
 
@@ -34,26 +35,14 @@ class LoginForm extends Component {
     return (
       <div className="row">
         <h1 className="center-align LoginForm-h1">Log In</h1>
-        <form className="col s6 offset-s3" onSubmit={this.handleSubmit} >
-          <div className="row">
-            <div className="input-field col s12">
-              <input type="text" className="validate" placeholder="Email" id="email" value={this.state.email} onChange={(e) => this.handleChange('email', e)} />
-              <label for="email">Email</label>
-            </div>
-          </div>
-          <div className="row">
-            <div className="input-field col s12">
-              <input type="password" className="validate" id="password" placeholder="Password" value={this.state.pw} onChange={(e) => this.handleChange('pw', e)} />
-              <label for="password">Password</label>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col s12">
-              <button className="btn LoginForm-button">Log In</button>&nbsp;&nbsp;&nbsp;
-              <Link to='/' className="LoginForm-cancel">Cancel</Link>
-            </div>
-          </div>
-        </form>
+        {/*<form className="col s6 offset-s3" onSubmit={this.handleSubmit} >
+        <Row>  
+          <Input s={12} type="email" label="Email" />
+          <Input s={12} type="password" label="Password" />
+          <Input s={12} type="submit">Log In</Input>&nbsp;&nbsp;&nbsp;
+          <Link to='/' className="LoginForm-cancel">Cancel</Link>*/}
+
+        {/*</Row>*/}
       </div>
     );
   }
