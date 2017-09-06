@@ -41,7 +41,10 @@ class SearchPage extends Component {
                     updateSearch={this.updateSearch} 
                     searchPodcast={this.searchPodcast}
                 />
-                <ShowPodcast podcasts={this.state.searchResult[0]}/>
+                <ShowPodcast 
+                    podcasts={this.state.searchResult[0]}
+                    history={this.props.history}
+                />
                 </div>
         } else {
             showComponents = 

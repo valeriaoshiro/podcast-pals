@@ -76,11 +76,12 @@ class App extends Component {
                   :
                   <Redirect to='/login' />
               )} />
-              <Route exact path='/search' render={() => (
+              <Route exact path='/search' render={(props) => (
                 userService.getUser() ?
                   <SearchPage 
                     user={this.state.user}
                     handleLogout={this.handleLogout}
+                    history={props.history}
                   />
                   :
                   <Redirect to='/login' />

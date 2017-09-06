@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {browserHistory} from 'react-router';
 import {Card, CardTitle, Row, Col, Icon} from 'react-materialize';
 import tokenService from './../../utils/tokenService';
 import './ShowPodcast.css';
@@ -29,7 +30,7 @@ class ShowPodcast extends Component {
             })
         })
         .then(response => {
-            console.log('Success ', response);
+            this.props.history.push('/podcasts');
             
         })
     }

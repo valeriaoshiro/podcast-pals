@@ -26,7 +26,7 @@ function create(req, res){
             console.log('***User ', user)
             user.lists.push(podcast._id);
             user.save(err => {
-                res.redirect('/');
+                res.redirect('/podcasts');
             });
         })
     })
