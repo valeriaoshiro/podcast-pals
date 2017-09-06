@@ -1,5 +1,6 @@
 import React from 'react';
 import {Card, CardTitle, Row, Col, Icon} from 'react-materialize';
+import {Link} from 'react-router-dom';
 import './ShowPodcast.css';
 
 const ShowPodcast = (props) => {
@@ -13,7 +14,7 @@ const ShowPodcast = (props) => {
                     header={<CardTitle key={index} image={podcast.artworkUrl600}></CardTitle>}
                     actions={[<a href={podcast.collectionViewUrl} key={index} target="_blank">Visit Podcast</a>]}
                     >
-                    <Icon small>star_border</Icon> {podcast.collectionName}
+                    <Link to=""><Icon small className="ShowPodcast-icon">star_border</Icon></Link> {podcast.collectionName}
                 </Card>
 
             </Col> 
