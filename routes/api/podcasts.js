@@ -8,6 +8,7 @@ var podcastsCtrl = require('../../controllers/podcasts');
 /*---------- Protected Routes ----------*/
 router.get('/', checkAuth, podcastsCtrl.index);
 router.post('/', checkAuth, podcastsCtrl.create);
+router.delete('/:id', checkAuth, podcastsCtrl.delete);
 
 
 /*----- Helper Functions -----*/

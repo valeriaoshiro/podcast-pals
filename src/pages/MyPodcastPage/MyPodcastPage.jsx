@@ -15,6 +15,13 @@ class MyPodcastPage extends Component {
       userLists: []
    }
   }
+
+  removePodcast = (podcast) => {
+    var index = this.state.userLists.indexOf(podcast);
+    this.state.userLists.splice(index, 1);
+    console.log(this.state.userLists);
+  }
+
   componentWillMount(){
     fetch('/api/users', {
       method: 'GET',
@@ -43,7 +50,9 @@ class MyPodcastPage extends Component {
           userName={this.state.userName}
           userEmail={this.state.userEmail}
           userLists={this.state.userLists}
+          removePodcast={this.removePodcast}
         />
+        
       </div>
     );
   }

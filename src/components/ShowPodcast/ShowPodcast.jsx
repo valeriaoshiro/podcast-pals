@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {browserHistory} from 'react-router';
 import {Card, CardTitle, Row, Col, Icon} from 'react-materialize';
 import tokenService from './../../utils/tokenService';
 import './ShowPodcast.css';
@@ -8,7 +7,7 @@ var allPodcasts;
 
 class ShowPodcast extends Component {
     constructor(props) {
-    super(props);
+        super(props);
         this.state = {
         }
     }
@@ -31,7 +30,6 @@ class ShowPodcast extends Component {
         })
         .then(response => {
             this.props.history.push('/podcasts');
-            
         })
     }
 

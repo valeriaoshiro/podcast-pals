@@ -4,7 +4,8 @@ var SECRET = process.env.SECRET;
 
 module.exports = {
   index,
-  create
+  create,
+  delete: deletePodcast
 };
 
 function index(req, res){
@@ -32,3 +33,12 @@ function create(req, res){
     })
 };
 
+function deletePodcast(req, res){
+    console.log("req.params ", req.params)
+    User.findById(req.user._id, (err, user) => {
+        user.lists.remove(req.params.id);
+        user.save(err => {
+            res.redirect('/podcasts');
+        })
+    })
+}
