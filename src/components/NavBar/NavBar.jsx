@@ -7,8 +7,8 @@ class NavBar extends Component {
   render(){
     let nav = this.props.user ?
       <div>
+        <NavItem key="2" href="/search" className='NavBar-color'>SEARCH</NavItem>
         <NavItem key="5" href="/podcasts" className='NavBar-color'>MY PAGE</NavItem>
-        {/*<NavItem key="2">&nbsp;<span className="NavBar-pipe">|</span>&nbsp;&nbsp;&nbsp;<span className='NavBar-color'>WELCOME, {this.props.user.name}</span></NavItem>*/}
         <NavItem key="1" href="" className='NavBar-color' onClick={this.props.handleLogout} >LOG OUT</NavItem>
       </div>
       :

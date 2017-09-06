@@ -10,7 +10,7 @@ const ShowPodcast = (props) => {
                     key={index}
                     className='small'
                     header={<CardTitle key={index} image={podcast.artworkUrl600}></CardTitle>}
-                    actions={[<a href={podcast.collectionViewUrl} key={index}>Visit Podcast</a>]}>
+                    actions={[<a href={podcast.collectionViewUrl} key={index} target="_blank">Visit Podcast</a>]}>
                     {podcast.collectionName}
                 </Card>
 
