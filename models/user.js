@@ -8,7 +8,8 @@ var userSchema = new Schema({
   name: String,
   email: {type: String, required: true, lowercase: true, unique: true},
   password: String,
-  lists: [{type: Schema.Types.ObjectId, ref: 'Podcast'}]
+  lists: [{type: Schema.Types.ObjectId, ref: 'Podcast'}],
+  friends: [{type: Schema.Types.ObjectId, ref: 'User'}]
 }, {
   timestamps: true
 });

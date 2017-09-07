@@ -6,7 +6,8 @@ module.exports = {
   signup,
   login,
   index,
-  searchUsers
+  searchUsers,
+  addFriend
 };
 
 function signup(req, res) {
@@ -41,12 +42,19 @@ function index(req, res){
 };
 
 function searchUsers(req, res){
-  console.log("****req.body ", req.body)
   var re = '(.*)' + req.body.searchValue + '(.*)';
   var reg = new RegExp(re, 'gi');
 
   User.find({name: reg}).populate('lists').exec((err, users) => {
     res.status(200).json(users);
+  })
+}
+
+function addFriend(req, res){
+  console.log('*** req.body.friend ',req.body.friend)
+  User.findById(req.user._id, (err, user) => {
+    user.friends.push(req.body.friend._id);
+    console.log(user);
   })
 }
 

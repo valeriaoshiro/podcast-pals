@@ -28,7 +28,10 @@ class SearchPage extends Component {
             console.log('***search podcast', data)
             var resultsArray = []
             resultsArray.push(data.results);
-            this.setState( {searchPodcastResult: [...resultsArray]} );
+            this.setState({
+                searchPodcastResult: [...resultsArray],
+                searchUserResult: []
+            });
         });    
     }
 
@@ -50,7 +53,10 @@ class SearchPage extends Component {
             console.log("***data back ", data);
             var resultsArray = []
             resultsArray.push(data);
-            this.setState( {searchUserResult: [...resultsArray]} );
+            this.setState({
+                searchUserResult: [...resultsArray],
+                searchPodcastResult: []
+            });
         }); 
     }
 

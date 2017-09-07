@@ -43,7 +43,7 @@ class ShowPodcast extends Component {
                         header={<CardTitle key={index} image={podcast.artworkUrl600}></CardTitle>}
                         actions={[<a href={podcast.collectionViewUrl} key={index} target="_blank">Visit Podcast</a>]}
                         >
-                        <button onClick={() => this.handleClick(podcast)} className="ShowPodcast-button"><Icon small className="ShowPodcast-icon">star_border</Icon></button>
+                        <button onClick={() => this.handleClick(podcast)} className="ShowPodcast-button"><Icon small className="ShowPodcast-icon">star</Icon></button>
                         {podcast.collectionName}
                     </Card>
                 </Col> 
