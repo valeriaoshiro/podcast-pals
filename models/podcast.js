@@ -2,11 +2,11 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var podcastSchema = new Schema({
-  name: String,
-  genre: String,
-  cover: String,
+  collectionName: String,
+  primaryGenreName: String,
+  artworkUrl600: String,
   collectionId: String,
-  url: String
+  collectionViewUrl: String
 }, {
   timestamps: true
 });

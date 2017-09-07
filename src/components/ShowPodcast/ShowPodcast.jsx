@@ -21,11 +21,11 @@ class ShowPodcast extends Component {
                 'Content-Type': 'application/json'
             }),
             body: JSON.stringify({
-                name: podcast.collectionName,
-                genre: podcast.primaryGenreName,
-                cover: podcast.artworkUrl600,
+                collectionName: podcast.collectionName,
+                primaryGenreName: podcast.primaryGenreName,
+                artworkUrl600: podcast.artworkUrl600,
                 collectionId: podcast.collectionId,
-                url: podcast.collectionViewUrl
+                collectionViewUrl: podcast.collectionViewUrl
             })
         })
         .then(response => {

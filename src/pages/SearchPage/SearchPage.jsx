@@ -25,6 +25,7 @@ class SearchPage extends Component {
         })
         .then(response => response.json())
         .then(data => {
+            console.log('***search podcast', data)
             var resultsArray = []
             resultsArray.push(data.results);
             this.setState( {searchPodcastResult: [...resultsArray]} );

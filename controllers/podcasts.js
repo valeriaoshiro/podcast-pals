@@ -15,7 +15,7 @@ function index(req, res){
 };
 
 function create(req, res){
-    console.log('***req.user ',req.user);
+    console.log('***req.body ',req.body);
     Podcast.findOne({ "collectionId": req.body.collectionId }, (err, result) => {
         var podcast;
         if(!result) {

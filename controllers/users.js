@@ -44,8 +44,8 @@ function searchUsers(req, res){
   console.log("****req.body ", req.body)
   var re = '(.*)' + req.body.searchValue + '(.*)';
   var reg = new RegExp(re, 'gi');
-  // console.log(reg);
-  User.find({name: reg}, (err, users) => {
+
+  User.find({name: reg}).populate('lists').exec((err, users) => {
     res.status(200).json(users);
   })
 }
