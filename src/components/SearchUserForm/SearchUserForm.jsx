@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import './SearchPodcastForm.css';
+import './SearchUserForm.css';
 
-class SearchPodcastForm extends Component {
+class SearchUserForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,7 +18,7 @@ class SearchPodcastForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.searchPodcast(this.state.search);
+    this.props.searchUser(this.state.search);
   }
 
   render() {
@@ -26,13 +26,13 @@ class SearchPodcastForm extends Component {
         <form className="col s12" onSubmit={this.handleSubmit} >
           <div className="row">
             <div className="input-field col s12">
-              <input type="text" className="validate" placeholder="Search Podcast" id="search" value={this.state.search} onChange={(e) => this.handleChange('search', e)} />
-              <label htmlFor="search">Search Podcast</label>
+              <input type="text" className="validate" placeholder="Search User" id="search" value={this.state.search} onChange={(e) => this.handleChange('search', e)} />
+              <label htmlFor="search">Search User</label>
             </div>
           </div>
           <div className="row">
             <div className="col s12">
-              <button className="btn SearchPodcastForm-button">Submit</button>
+              <button className="btn SearchUserForm-button">Submit</button>
             </div>
           </div>
         </form>
@@ -40,4 +40,4 @@ class SearchPodcastForm extends Component {
   }
 };
 
-export default SearchPodcastForm;
+export default SearchUserForm;
