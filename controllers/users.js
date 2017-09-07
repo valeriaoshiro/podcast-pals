@@ -5,7 +5,8 @@ var SECRET = process.env.SECRET;
 module.exports = {
   signup,
   login,
-  index
+  index,
+  searchUsers
 };
 
 function signup(req, res) {
@@ -38,6 +39,16 @@ function index(req, res){
     res.status(200).json(user);
   })
 };
+
+function searchUsers(req, res){
+  console.log("****req.body ", req.body)
+  var re = '(.*)' + req.body.searchValue + '(.*)';
+  var reg = new RegExp(re, 'gi');
+  // console.log(reg);
+  User.find({name: reg}, (err, users) => {
+    res.status(200).json(users);
+  })
+}
 
 /*----- Helper Functions -----*/
 

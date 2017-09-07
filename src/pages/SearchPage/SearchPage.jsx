@@ -4,13 +4,16 @@ import SearchPodcastForm from '../../components/SearchPodcastForm/SearchPodcastF
 import SearchUserForm from '../../components/SearchUserForm/SearchUserForm';
 import NavBar from '../../components/NavBar/NavBar';
 import ShowPodcast from '../../components/ShowPodcast/ShowPodcast';
+import ShowUser from '../../components/ShowUser/ShowUser';
+import tokenService from './../../utils/tokenService';
 import './SearchPage.css';
 
 class SearchPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            searchResult: []
+            searchPodcastResult: [],
+            searchUserResult: []
         }
     }
 
@@ -24,22 +27,50 @@ class SearchPage extends Component {
         .then(data => {
             var resultsArray = []
             resultsArray.push(data.results);
-            this.setState( {searchResult: [...resultsArray]} );
+            this.setState( {searchPodcastResult: [...resultsArray]} );
         });    
     }
 
-    searchUser = (searchValue) => {}
+    searchUser = (searchValue) => {
+        // console.log(searchValue);
+        fetch('/api/users/searchUsers', {
+            method: 'POST',
+            headers: new Headers({
+                'Authorization': 'Bearer ' + tokenService.getToken(),
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }),
+            body: JSON.stringify({
+                searchValue: searchValue
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log("***data back ", data);
+            var resultsArray = []
+            resultsArray.push(data);
+            this.setState( {searchUserResult: [...resultsArray]} );
+        }); 
+    }
 
     render() {
-        console.log(this.state.searchResult[0]);
+        console.log(this.state.searchPodcastResult[0]);
         var showComponents;
-        if(this.state.searchResult.length > 0){
+        if(this.state.searchPodcastResult.length > 0){
             showComponents = 
                 <div>
-                <ShowPodcast 
-                    podcasts={this.state.searchResult[0]}
-                    history={this.props.history}
-                />
+                    <ShowPodcast 
+                        podcasts={this.state.searchPodcastResult[0]}
+                        history={this.props.history}
+                    />
+                </div>
+        } else if(this.state.searchUserResult.length > 0){
+            showComponents = 
+                <div>
+                    <ShowUser
+                        users={this.state.searchUserResult}
+                        history={this.props.history}
+                    />
                 </div>
         } else {
             showComponents = 
@@ -57,14 +88,12 @@ class SearchPage extends Component {
                     <Col s={6}>
                         <SearchPodcastForm 
                             {...this.props} 
-                            updateSearch={this.updateSearch} 
                             searchPodcast={this.searchPodcast}
                         />
                     </Col>
                     <Col s={6}>
                         <SearchUserForm 
                             {...this.props} 
-                            updateSearch={this.updateSearch} 
                             searchUser={this.searchUser}
                         />
                     </Col>

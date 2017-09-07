@@ -10,12 +10,12 @@ router.post('/login', usersCtrl.login);
 
 /*---------- Protected Routes ----------*/
 router.get('/', checkAuth, usersCtrl.index);
+router.post('/searchUsers', checkAuth, usersCtrl.searchUsers);
 
 
 /*----- Helper Functions -----*/
 
 function checkAuth(req, res, next) {
-  console.log('Smerge', req.user)
   if (req.user) return next();
   return res.status(401).json({msg: 'not authenticated'});
 }
