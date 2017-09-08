@@ -26,7 +26,7 @@ class SearchPodcastForm extends Component {
         <form className="col s12" onSubmit={this.handleSubmit} >
           <div className="row">
             <div className="input-field col s12">
-              <input type="text" className="validate" placeholder="Search Podcast" id="search" value={this.state.search} onChange={(e) => this.handleChange('search', e)} />
+              <input type="text" placeholder="Search Podcast" id="search" value={this.state.search} onChange={(e) => this.handleChange('search', e)} />
               <label htmlFor="search">Search Podcast</label>
             </div>
           </div>

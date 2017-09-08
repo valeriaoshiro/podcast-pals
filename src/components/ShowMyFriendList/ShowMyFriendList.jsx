@@ -16,7 +16,7 @@ class ShowMyFriendList extends Component{
             this.props.myFriends.forEach((friend, index) => {
                 allFriendsWithLists.push(
                     <div key={index}>
-                        <h5>{friend.name}</h5>
+                        <h5 className="ShowMyFriendList-h5">{friend.name}</h5>
                         <ShowPodcast 
                             podcasts={friend.lists}
                             myLists={this.props.myLists}

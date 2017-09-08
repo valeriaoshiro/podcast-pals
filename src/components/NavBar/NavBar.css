@@ -1,6 +1,7 @@
 .NavBar {
     background: #ffffff;
     color: #A9A9A9;
+    padding: 0 10px 0 20px;
 }
 
 .NavBar-color a {
@@ -23,4 +24,8 @@ nav .brand-logo {
 
 .button-collapse i {
     color: #A9A9A9;
+}
+
+.NavBar-logoImg {
+    width: 30px;
 }

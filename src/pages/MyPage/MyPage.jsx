@@ -36,7 +36,7 @@ class MyPage extends Component {
             handleLogout={this.props.handleLogout}
         />
           <h1 className="MyPage-h1 center-align">My Page</h1>
-          <h4 className="center-align">My Podcasts</h4>
+          <h4 className="MyPage-h4 center-align">My Podcasts</h4>
           <ShowMyPodcastList
             user={this.state.user}
             myLists={this.props.myLists}
@@ -44,7 +44,7 @@ class MyPage extends Component {
             removePodcast={this.props.removePodcast}
             history={this.props.history}
           />
-          <h4 className="center-align">My Friends</h4>
+          <h4 className="MyPage-h4 center-align">My Friends</h4>
           <ShowMyFriendList
             user={this.state.user}
             myLists={this.props.myLists}

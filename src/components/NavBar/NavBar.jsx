@@ -17,8 +17,11 @@ class NavBar extends Component {
         <NavItem key="4" href="/signup" className='NavBar-color'>SIGN UP</NavItem>
       </div>;
 
+    var logo = <div className="valign-wrapper"><span>PODCAST PALS&nbsp;</span><img className="NavBar-logoImg" src={'https://i.imgur.com/X6dwDe4.png'} alt="logo"/></div>
+    console.log(logo)
+
     return (
-      <Navbar brand="PODCAST PALS" className="NavBar" right>
+      <Navbar brand={logo} className="NavBar" right>
         {nav}
       </Navbar>
     );
