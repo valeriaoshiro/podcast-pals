@@ -20,6 +20,7 @@ class ShowMyFriendList extends Component{
                         <ShowPodcast 
                             podcasts={friend.lists}
                             history={this.props.history}
+                            addPodcast={this.props.addPodcast}
                         />
                     </div>
                 )

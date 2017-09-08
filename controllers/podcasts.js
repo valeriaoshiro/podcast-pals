@@ -15,7 +15,7 @@ function index(req, res){
 };
 
 function create(req, res){
-    console.log('***req.body ',req.body);
+    // console.log('***req.body ',req.body);
     Podcast.findOne({ "collectionId": req.body.collectionId }, (err, result) => {
         var podcast;
         if(!result) {
@@ -24,12 +24,15 @@ function create(req, res){
         } else {
             podcast = result;
         }
-        console.log('***podcast ', podcast)
+        // console.log('***podcast ', podcast)
         User.findById(req.user._id, (err, user) => {
-            console.log('***User ', user)
+            // console.log('***User ', user)
             user.lists.push(podcast._id);
-            user.save(err => {
-                res.redirect('/podcasts');
+            user.save((err, savedUser) => {
+                console.log('savedUser =', savedUser)
+                if (err) return res.status(400).json(err)
+
+                res.status(200).json(podcast);
             });
         })
     })

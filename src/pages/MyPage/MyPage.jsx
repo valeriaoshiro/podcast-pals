@@ -14,6 +14,13 @@ class MyPage extends Component {
    }
   }
 
+  addPodcast = (podcast) => {
+    console.log('addPodcast > podcast = ', podcast)
+    this.setState({
+      myLists: [...this.state.myLists, podcast]
+    })
+  }
+
   removePodcast = (podcast) => {
     var index = this.state.myLists.indexOf(podcast);
     var newArray = [...this.state.myLists];
@@ -54,6 +61,7 @@ class MyPage extends Component {
             user={this.state.user}
             myFriends={this.state.myFriends}
             history={this.props.history}
+            addPodcast={this.addPodcast}
           />
       </div>
     );

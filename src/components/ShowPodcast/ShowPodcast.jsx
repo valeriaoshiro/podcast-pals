@@ -28,7 +28,9 @@ class ShowPodcast extends Component {
                 collectionViewUrl: podcast.collectionViewUrl
             })
         })
+        .then(response => response.json())
         .then(response => {
+            this.props.addPodcast(response);
             this.props.history.push('/podcasts');
         })
     }
