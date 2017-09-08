@@ -9,23 +9,8 @@ class MyPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      myLists: [],
       myFriends: []
    }
-  }
-
-  addPodcast = (podcast) => {
-    console.log('addPodcast > podcast = ', podcast)
-    this.setState({
-      myLists: [...this.state.myLists, podcast]
-    })
-  }
-
-  removePodcast = (podcast) => {
-    var index = this.state.myLists.indexOf(podcast);
-    var newArray = [...this.state.myLists];
-    newArray.splice(index, 1);
-    this.setState({myLists: [...newArray]});
   }
 
   componentWillMount(){
@@ -35,8 +20,9 @@ class MyPage extends Component {
     })
     .then(res => res.json()) 
     .then(data => {
+
       this.setState({
-        myLists: [...data.lists],
+        // this.props.myLists: [...data.lists],
         myFriends: [...data.friends]
       })
     });
@@ -53,15 +39,19 @@ class MyPage extends Component {
           <h4 className="center-align">My Podcasts</h4>
           <ShowMyPodcastList
             user={this.state.user}
-            myLists={this.state.myLists}
-            removePodcast={this.removePodcast}
+            myLists={this.props.myLists}
+            addPodcast={this.props.addPodcast}
+            removePodcast={this.props.removePodcast}
+            history={this.props.history}
           />
           <h4 className="center-align">My Friends</h4>
           <ShowMyFriendList
             user={this.state.user}
+            myLists={this.props.myLists}
+            addPodcast={this.props.addPodcast}
+            removePodcast={this.props.removePodcast}
             myFriends={this.state.myFriends}
             history={this.props.history}
-            addPodcast={this.addPodcast}
           />
       </div>
     );

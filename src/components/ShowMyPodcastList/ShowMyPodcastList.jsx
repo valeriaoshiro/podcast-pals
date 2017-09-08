@@ -15,11 +15,14 @@ class ShowMyPodcastList extends Component{
             method: 'DELETE',
             headers: new Headers({ 'Authorization': 'Bearer ' + tokenService.getToken() })
         })
+        .then(response => response.json())
         .then(response => {
+            this.props.history.push('/podcasts');
         })
     }
 
     render(){
+        console.log('this.props.myLists', this.props.myLists)
         if(this.props.myLists.length > 0){
             var allPodcasts = this.props.myLists.map((podcast, index) => {
                     return (

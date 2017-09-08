@@ -12,16 +12,33 @@ import LandingPage from '../LandingPage/LandingPage';
 import MyPage from '../MyPage/MyPage';
 import SearchPage from '../SearchPage/SearchPage';
 import userService from '../../utils/userService';
+import tokenService from '../../utils/tokenService';
+
 
 
 class App extends Component {
   constructor(props){
     super(props);
-    this.state = {};
+    this.state = {
+      myLists: []
+    };
   }
 
   /*---------- Callback Methods ----------*/
 
+  addPodcast = (podcast) => {
+    console.log('addPodcast > podcast = ', podcast)
+    this.setState({
+      myLists: [...this.state.myLists, podcast]
+    })
+  }
+
+  removePodcast = (podcast) => {
+    var index = this.state.myLists.indexOf(podcast);
+    var newArray = [...this.state.myLists];
+    newArray.splice(index, 1);
+    this.setState({myLists: [...newArray]});
+  }
 
   handleLogout = () => {
     userService.logout();
@@ -39,6 +56,20 @@ class App extends Component {
 
   /*---------- Lifecycle Methods ----------*/
 
+  componentWillMount(){
+    fetch('/api/users', {
+      method: 'GET',
+      headers: new Headers({'Authorization': 'Bearer ' + tokenService.getToken()})
+    })
+    .then(res => res.json()) 
+    .then(data => {
+
+      this.setState({
+        myLists: [...data.lists]
+      })
+    });
+  }
+
   componentDidMount() {
     let user = userService.getUser();
     this.setState({user});
@@ -54,18 +85,29 @@ class App extends Component {
                 user={this.state.user}
                 handleLogout={this.handleLogout}
                 history={props.history}
+                myLists={this.state.myLists}
+                addPodcast={this.addPodcast}
+                removePodcast={this.removePodcast}
               />
             }/>
             <Route exact path='/signup' render={(props) => 
               <SignupPage 
                   {...props}
                   handleSignup={this.handleSignup}
+                  history={props.history}
+                  myLists={this.state.myLists}
+                  addPodcast={this.addPodcast}
+                  removePodcast={this.removePodcast}
                 />
               }/>
               <Route exact path='/login' render={(props) => 
                 <LoginPage
                   {...props}
                   handleLogin={this.handleLogin}
+                  history={props.history}
+                  myLists={this.state.myLists}
+                  addPodcast={this.addPodcast}
+                  removePodcast={this.removePodcast}
                 />
               }/>
               <Route exact path='/podcasts' render={(props) => (
@@ -74,6 +116,9 @@ class App extends Component {
                     user={this.state.user}
                     handleLogout={this.handleLogout}
                     history={props.history}
+                    myLists={this.state.myLists}
+                    addPodcast={this.addPodcast}
+                    removePodcast={this.removePodcast}
                   />
                   :
                   <Redirect to='/login' />
@@ -84,6 +129,9 @@ class App extends Component {
                     user={this.state.user}
                     handleLogout={this.handleLogout}
                     history={props.history}
+                    myLists={this.state.myLists}
+                    addPodcast={this.addPodcast}
+                    removePodcast={this.removePodcast}
                   />
                   :
                   <Redirect to='/login' />

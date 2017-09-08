@@ -4,9 +4,6 @@ import ShowPodcast from '../ShowPodcast/ShowPodcast';
 import tokenService from './../../utils/tokenService';
 import './ShowUser.css';
 
-
-import './ShowUser.css';
-
 class ShowUser extends Component {
     constructor(props) {
         super(props);
@@ -42,6 +39,9 @@ class ShowUser extends Component {
                     <ShowPodcast
                         podcasts={user.lists}
                         history={this.props.history}
+                        myLists={this.props.myLists}
+                        addPodcast={this.props.addPodcast}
+                        removePodcast={this.props.removePodcast}
                     />
                 </div> 
             )

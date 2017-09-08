@@ -47,6 +47,9 @@ class LandingPage extends Component {
                 <ShowPodcast 
                     podcasts={this.state.topPodcasts}
                     history={this.props.history}
+                    myLists={this.props.myLists}
+                    addPodcast={this.props.addPodcast}
+                    removePodcast={this.props.removePodcast}
                 />
             </div>
         );

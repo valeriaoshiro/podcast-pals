@@ -39,12 +39,11 @@ function create(req, res){
 };
 
 function deletePodcast(req, res){
-    console.log("req.params ", req.params)
-    console.log("req.user._id", req.user._id)
     User.findById(req.user._id, (err, user) => {
         user.lists.remove(req.params.id);
-        user.save(err => {
-            res.status(200).json(err);
+        user.save((err, deletedUser) => {
+
+            res.status(200).json(deletedUser);
         })
     })
 }

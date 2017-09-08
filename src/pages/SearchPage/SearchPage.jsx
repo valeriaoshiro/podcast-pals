@@ -69,6 +69,9 @@ class SearchPage extends Component {
                     <ShowPodcast 
                         podcasts={this.state.searchPodcastResult[0]}
                         history={this.props.history}
+                        myLists={this.props.myLists}
+                        addPodcast={this.props.addPodcast}
+                        removePodcast={this.props.removePodcast}
                     />
                 </div>
         } else if(this.state.searchUserResult.length > 0){
@@ -77,6 +80,9 @@ class SearchPage extends Component {
                     <ShowUser
                         users={this.state.searchUserResult}
                         history={this.props.history}
+                        myLists={this.props.myLists}
+                        addPodcast={this.props.addPodcast}
+                        removePodcast={this.props.removePodcast}
                     />
                 </div>
         } else {
