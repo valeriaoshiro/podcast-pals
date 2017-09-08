@@ -20,10 +20,10 @@ class ShowMyPodcastList extends Component{
     }
 
     render(){
-        if(this.props.userName){
-            var allPodcasts = this.props.userLists.map((podcast, index) => {
+        if(this.props.myLists.length > 0){
+            var allPodcasts = this.props.myLists.map((podcast, index) => {
                     return (
-                        <Col s={3} key={index}>
+                        <Col s={4} key={index}>
                             <Card
                                 key={index}
                                 className='small'

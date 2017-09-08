@@ -11,12 +11,12 @@
 }
 
 .ShowMyPodcastList .card .card-image img {
-    width: 80%;
+    width: 55%;
     margin: 0 auto;
 }
 
 .ShowMyPodcastList-icon {
-    color: #CAEBF2;
+    color: #FF3B3F;
 }
 
 .ShowMyPodcastList-button {

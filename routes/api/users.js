@@ -11,6 +11,7 @@ router.post('/login', usersCtrl.login);
 /*---------- Protected Routes ----------*/
 router.get('/', checkAuth, usersCtrl.index);
 router.post('/searchUsers', checkAuth, usersCtrl.searchUsers);
+router.get('/:id', checkAuth, usersCtrl.show);
 router.post('/addFriend', checkAuth, usersCtrl.addFriend);
 
 

@@ -42,7 +42,7 @@ class SignupForm extends Component {
     return (
       <div className="row">
         <h1 className="center-align SignupForm-h1">Sign Up</h1>
-        <form className="col s4" onSubmit={this.handleSubmit} >
+        <form className="col s6 offset-s3" onSubmit={this.handleSubmit} >
           <div className="row">
             <div className="input-field col s12">
               <input type="text" className="validate" placeholder="Name" id="name" value={this.state.name} onChange={(e) => this.handleChange('name', e)} />

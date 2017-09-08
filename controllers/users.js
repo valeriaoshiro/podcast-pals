@@ -7,6 +7,7 @@ module.exports = {
   login,
   index,
   searchUsers,
+  show,
   addFriend
 };
 
@@ -36,25 +37,46 @@ function login(req, res) {
 }
 
 function index(req, res){
-  User.findById(req.user).populate('lists').exec((err, user) => {
-    res.status(200).json(user);
-  })
+  User.findById(req.user)
+    .populate('lists')
+    .populate({
+      path: 'friends',
+      populate: {
+        path: 'lists',
+        model: 'Podcast'
+      }
+    })
+    .exec((err, user) => {
+      res.status(200).json(user);
+    })
 };
 
 function searchUsers(req, res){
   var re = '(.*)' + req.body.searchValue + '(.*)';
   var reg = new RegExp(re, 'gi');
 
-  User.find({name: reg}).populate('lists').exec((err, users) => {
-    res.status(200).json(users);
-  })
+  User.find({name: reg})
+    .populate('lists')
+    .populate('friends')
+    .exec((err, users) => {
+      res.status(200).json(users);
+    })
+}
+
+function show(req, res){
+  User.findById(req.params.id)
+    .populate('lists')
+    .exec((err, user) => {
+      res.status(200).json(user);
+    })
 }
 
 function addFriend(req, res){
-  console.log('*** req.body.friend ',req.body.friend)
   User.findById(req.user._id, (err, user) => {
     user.friends.push(req.body.friend._id);
-    console.log(user);
+    user.save(err => {
+      res.status(200).json(user)
+    });
   })
 }
 

@@ -15,7 +15,6 @@ class ShowUser extends Component {
     }
 
     handleClick = (user) => {
-        console.log("*** handleClick user ", user)
         fetch('/api/users/addFriend', {
             method: 'POST',
             headers: new Headers({
@@ -28,7 +27,7 @@ class ShowUser extends Component {
             })
         })
         .then(response => {
-            // this.props.history.push('/podcasts');
+            this.props.history.push('/podcasts');
         })
     }
 
@@ -37,8 +36,9 @@ class ShowUser extends Component {
         var users = this.props.users[0].map((user, index) => {
             return (
                 <div key={index}>
-                    <h4>{user.name} <button onClick={() => this.handleClick(user)} className="ShowUser-button"><Icon small className="ShowUser-icon">star</Icon></button>
-</h4>
+                    <h4>{user.name} 
+                        <button onClick={() => this.handleClick(user)} className="ShowUser-button"><Icon small className="ShowUser-icon">star</Icon></button>
+                    </h4>
                     <ShowPodcast
                         podcasts={user.lists}
                         history={this.props.history}
