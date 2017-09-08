@@ -5,6 +5,7 @@
 PODCAST PALS is a web app where users can discover new podcasts. You will be able to keep track of what your friends listen to and also share your favorite podcasts.
 If you would like to know my favorite podcasts, search for my name: Valeria
 
+## Screenshots
 
 ![Landing Page](https://i.imgur.com/Avzghux.png)
 
@@ -13,11 +14,12 @@ If you would like to know my favorite podcasts, search for my name: Valeria
 
 ## Technologies Used
 
-* React and JSX
-* Node, Express, MongoDB and Mongoose
+* React, JSX and token authentication with JWT
 * React-Materialize and Materialize
+* Node, Express, MongoDB, Mongoose and MLab
 * Git, GitHub and Heroku
 * iTunes Search API
+* VS Code
 
 ## Getting Started:
 
