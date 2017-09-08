@@ -24,6 +24,7 @@ function create(req, res){
         } else {
             podcast = result;
         }
+        console.log('***podcast ', podcast)
         User.findById(req.user._id, (err, user) => {
             console.log('***User ', user)
             user.lists.push(podcast._id);

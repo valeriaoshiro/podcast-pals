@@ -28,7 +28,6 @@ class MyPage extends Component {
     })
     .then(res => res.json()) 
     .then(data => {
-      console.log('111',data);
       this.setState({
         myLists: [...data.lists],
         myFriends: [...data.friends]
