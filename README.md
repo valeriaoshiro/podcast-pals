@@ -14,7 +14,7 @@ If you would like to know my favorite podcasts, search for my name: Valeria
 
 ## Technologies Used
 
-* React, JSX and token authentication with JWT
+* JavaScript, React, JSX and token authentication with JWT
 * React-Materialize and Materialize
 * Node, Express, MongoDB, Mongoose and MLab
 * Git, GitHub and Heroku
