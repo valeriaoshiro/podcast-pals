@@ -67,6 +67,7 @@ class SearchPage extends Component {
             showComponents = 
                 <div>
                     <ShowPodcast 
+                        user={this.props.user}
                         podcasts={this.state.searchPodcastResult[0]}
                         history={this.props.history}
                         myLists={this.props.myLists}
@@ -83,6 +84,7 @@ class SearchPage extends Component {
                         myLists={this.props.myLists}
                         addPodcast={this.props.addPodcast}
                         removePodcast={this.props.removePodcast}
+                        user={this.props.user}
                     />
                 </div>
         } else {
@@ -102,12 +104,14 @@ class SearchPage extends Component {
                         <SearchPodcastForm 
                             {...this.props} 
                             searchPodcast={this.searchPodcast}
+                            user={this.props.user}
                         />
                     </Col>
                     <Col s={6}>
                         <SearchUserForm 
                             {...this.props} 
                             searchUser={this.searchUser}
+                            user={this.props.user}
                         />
                     </Col>
                 </Row>    

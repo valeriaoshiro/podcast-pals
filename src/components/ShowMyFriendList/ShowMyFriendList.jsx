@@ -18,6 +18,7 @@ class ShowMyFriendList extends Component{
                     <div key={index}>
                         <h5 className="ShowMyFriendList-h5">{friend.name}</h5>
                         <ShowPodcast 
+                            user={this.props.user}
                             podcasts={friend.lists}
                             myLists={this.props.myLists}
                             addPodcast={this.props.addPodcast}

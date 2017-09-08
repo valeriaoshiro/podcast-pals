@@ -38,7 +38,7 @@ class MyPage extends Component {
           <h1 className="MyPage-h1 center-align">My Page</h1>
           <h4 className="MyPage-h4 center-align">My Podcasts</h4>
           <ShowMyPodcastList
-            user={this.state.user}
+            user={this.props.user}
             myLists={this.props.myLists}
             addPodcast={this.props.addPodcast}
             removePodcast={this.props.removePodcast}
@@ -46,7 +46,7 @@ class MyPage extends Component {
           />
           <h4 className="MyPage-h4 center-align">My Friends</h4>
           <ShowMyFriendList
-            user={this.state.user}
+            user={this.props.user}
             myLists={this.props.myLists}
             addPodcast={this.props.addPodcast}
             removePodcast={this.props.removePodcast}

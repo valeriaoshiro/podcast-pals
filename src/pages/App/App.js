@@ -11,6 +11,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import LandingPage from '../LandingPage/LandingPage';
 import MyPage from '../MyPage/MyPage';
 import SearchPage from '../SearchPage/SearchPage';
+import AboutPage from '../AboutPage/AboutPage';
 import userService from '../../utils/userService';
 import tokenService from '../../utils/tokenService';
 
@@ -103,6 +104,18 @@ class App extends Component {
               <Route exact path='/login' render={(props) => 
                 <LoginPage
                   {...props}
+                  handleLogin={this.handleLogin}
+                  history={props.history}
+                  myLists={this.state.myLists}
+                  addPodcast={this.addPodcast}
+                  removePodcast={this.removePodcast}
+                />
+              }/>
+              <Route exact path='/about' render={(props) => 
+                <AboutPage
+                  {...props}
+                  user={this.state.user}
+                  handleLogout={this.handleLogout}
                   handleLogin={this.handleLogin}
                   history={props.history}
                   myLists={this.state.myLists}

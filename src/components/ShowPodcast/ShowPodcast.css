@@ -19,6 +19,14 @@
     color: #FF3B3F;
 }
 
+.ShowPodcast-button:focus {
+    background: white;
+}
+
+.ShowPodcast-button:active {
+    background: white;
+}
+
 .ShowPodcast-button {
     border: none;
     background: white;
