@@ -28,7 +28,6 @@ class App extends Component {
   /*---------- Callback Methods ----------*/
 
   addPodcast = (podcast) => {
-    console.log('addPodcast > podcast = ', podcast)
     this.setState({
       myLists: [...this.state.myLists, podcast]
     })
