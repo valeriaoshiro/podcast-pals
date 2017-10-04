@@ -8,7 +8,8 @@ module.exports = {
   index,
   searchUsers,
   show,
-  addFriend
+  addFriend,
+  removeFriend
 };
 
 function signup(req, res) {
@@ -78,6 +79,13 @@ function addFriend(req, res){
       res.status(200).json(user)
     });
   })
+}
+
+function removeFriend(req, res){
+  // User.findById(req.user._id, (err, user) => {
+  //   var index = user.friends.indexOf(req.params._id);
+
+  // });
 }
 
 /*----- Helper Functions -----*/

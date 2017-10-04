@@ -13,6 +13,17 @@ class MyPage extends Component {
    }
   }
 
+  /*---------- Callback Methods ----------*/
+
+  removeFriend = (friend) => {
+    var index = this.state.myFriends.indexOf(friend);
+    var newArray = [...this.state.myFriends];
+    newArray.splice(index, 1);
+    this.setState({myFriends: [...newArray]});
+  }
+
+  /*---------- Lifecycle Methods ----------*/
+
   componentWillMount(){
     fetch('/api/users', {
       method: 'GET',
@@ -52,6 +63,7 @@ class MyPage extends Component {
             removePodcast={this.props.removePodcast}
             myFriends={this.state.myFriends}
             history={this.props.history}
+            removeFriend={this.removeFriend}
           />
       </div>
     );
