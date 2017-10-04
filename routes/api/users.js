@@ -11,9 +11,9 @@ router.post('/login', usersCtrl.login);
 /*---------- Protected Routes ----------*/
 router.get('/', checkAuth, usersCtrl.index);
 router.post('/searchUsers', checkAuth, usersCtrl.searchUsers);
-router.get('/:id', checkAuth, usersCtrl.show);
 router.post('/addFriend', checkAuth, usersCtrl.addFriend);
-router.post('/removeFriend/:id', checkAuth, usersCtrl.removeFriend);
+router.delete('/removeFriend/:id', checkAuth, usersCtrl.removeFriend);
+router.get('/:id', checkAuth, usersCtrl.show);
 
 
 /*----- Helper Functions -----*/

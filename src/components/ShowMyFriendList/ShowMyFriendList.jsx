@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ShowPodcast from './../ShowPodcast/ShowPodcast'
-import {Icon} from 'react-materialize'
+import {Icon} from 'react-materialize';
+import tokenService from './../../utils/tokenService';
 import './ShowMyFriendList.css';
 
 class ShowMyFriendList extends Component{
@@ -12,14 +13,15 @@ class ShowMyFriendList extends Component{
 
     handleClick = (friend) => {
         this.props.removeFriend(friend);
-        // fetch(`/api/users/removeFriend/${friend._id}`, {
-        //     method: 'DELETE',
-        //     headers: new Headers({ 'Authorization': 'Bearer ' + tokenService.getToken() })
-        // })
-        // .then(response => response.json())
-        // .then(response => {
-        //     this.props.history.push('/podcasts');
-        // })
+        console.log(friend);
+        fetch(`/api/users/removeFriend/${friend._id}`, {
+            method: 'DELETE',
+            headers: new Headers({ 'Authorization': 'Bearer ' + tokenService.getToken() })
+        })
+        .then(response => response.json())
+        .then(response => {
+            this.props.history.push('/podcasts');
+        })
     }
 
     render(){

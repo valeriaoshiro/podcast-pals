@@ -82,10 +82,13 @@ function addFriend(req, res){
 }
 
 function removeFriend(req, res){
-  // User.findById(req.user._id, (err, user) => {
-  //   var index = user.friends.indexOf(req.params._id);
-
-  // });
+  User.findById(req.user._id, (err, user) => {
+    var index = user.friends.indexOf(req.params.id);
+    user.friends.splice(index, 1);
+    user.save(err => {
+      res.status(200).json(user)
+    })
+  });
 }
 
 /*----- Helper Functions -----*/
