@@ -3,7 +3,7 @@ import NavBar from '../../components/NavBar/NavBar';
 import ShowPodcast from '../../components/ShowPodcast/ShowPodcast';
 import './LandingPage.css';
 
-let topPodcastsHC = ['TED Talks Daily', '99% Invisible', 'This American Life', 'Kickass News', 'The Daily', 'The Joe Rogan Experience', 'Revisionist History', 'Up First', "Dan Carlin's Hardcore History", 'Stuff You Should Know'];
+let topPodcastsHC = ['TED Talks Daily', '99% Invisible', 'This American Life', 'Kickass News', 'S-Town', 'The Joe Rogan Experience', 'Revisionist History', 'Up First', "Dan Carlin's Hardcore History", 'Stuff You Should Know'];
 
 class LandingPage extends Component {
     constructor(props){
